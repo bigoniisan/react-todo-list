@@ -1,24 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import LoginForm from './pages/LoginForm';
+import SignUpForm from './pages/SignUpForm';
+import UploadVideo from './pages/UploadVideo';
+import UserChannel from './pages/UserChannel';
+import VideoPlayer from './pages/VideoPlayer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginForm />} />
+      <Route path="/signup" element={<SignUpForm />} />
+      <Route path="/user" element={<UserChannel />} />
+      <Route path="/upload" element={<UploadVideo />} />
+      {/* need random video path string */}
+      <Route path="/video" element={<VideoPlayer />} />
+
+    </Routes>
   );
 }
 
