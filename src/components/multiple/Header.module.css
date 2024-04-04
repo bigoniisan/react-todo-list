@@ -1,0 +1,52 @@
+:root {
+    --header-height: 100px;
+}
+
+.content {
+    display: flex;
+    position: relative;
+    background-color: grey;
+    height: var(--header-height);
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: aqua;
+}
+
+.logoContainer {
+    height: fit-content;
+    margin: 10px 0px 0px 100px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: green;
+}
+
+.searchbarContainer {
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+}
+
+
+@media screen and (max-width: 800px) {
+    .searchbarContainer {
+        display: none;
+    }
+}
+
+.loginButtonContainer {
+    position: absolute;
+    margin: 10px 100px 0px 0px;
+    top: calc(var(--header-height) * 0.1) ;
+    right: 0;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: green;
+}
