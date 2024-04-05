@@ -1,6 +1,6 @@
 import Styles from './HomePage.module.css';
 import Header from '../../components/multiple/Header';
-import VideoCard from '../../components/single/VideoCard';
+import VideoCard from '../../components/single/VideoCard/VideoCard';
 
 function HomePage(props) {
 
@@ -9,6 +9,37 @@ function HomePage(props) {
             <Header />
             <main>
                 <div className={Styles.videocardContainer}>
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
+                    <VideoCard />
                     <VideoCard />
                     <VideoCard />
                     <VideoCard />
