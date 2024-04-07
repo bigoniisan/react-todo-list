@@ -1,7 +1,7 @@
 import Styles from './Header.module.css'
 import Logo from '../single/Logo';
 import SearchBar from '../single/SearchBar';
-import LoginButton from '../single/LoginButton';
+import LoginButton from '../single/LoginButton/LoginButton';
 import SideMenu from '../single/SideMenu/SideMenu';
 
 function Header() {

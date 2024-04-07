@@ -1,0 +1,11 @@
+.loginForm {
+    display: none;
+}
+
+.accountIcon {
+    border: none;
+    border-radius: 50%;
+    margin: 4px 2px;
+    padding: 30px;
+    background-color: white
+}
