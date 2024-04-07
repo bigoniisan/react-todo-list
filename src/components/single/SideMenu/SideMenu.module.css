@@ -1,5 +1,6 @@
 .sideBarScreen {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -13,6 +14,14 @@
 
 .sideBarScreenShow {
     width: 200px;
+}
+
+.sideBarButton {
+    display: none;
+}
+
+.sideBarButtonShow {
+    display: relative;
 }
 
 .menuContainer {
