@@ -12,7 +12,9 @@ function LoginButton() {
 
     return (
         <>
-            <button style={styles}></button>
+            <a href="#">
+                <button style={styles}></button>
+            </a>
         </>
     )
 }

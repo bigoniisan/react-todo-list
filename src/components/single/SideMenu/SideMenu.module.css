@@ -1,0 +1,33 @@
+.sideBarScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    background-color: #333333;
+    height: 100vh;
+    width: 0vw;
+    z-index: 10;
+    transition: width 0.25s;
+}
+
+.sideBarScreenShow {
+    width: 200px;
+}
+
+.menuContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: auto;
+    width: auto;
+    z-index: 20;
+}
+
+.menuBar1, .menuBar2, .menuBar3 {
+    width: 35px;
+    height: 2px;
+    background-color: white;
+    margin-top: 6px;
+}
+
