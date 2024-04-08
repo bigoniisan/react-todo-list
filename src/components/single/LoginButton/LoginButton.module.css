@@ -1,6 +1,14 @@
 .loginForm {
     display: none;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    
+    border-color: aqua;
+    border-width: 1px;
+    border-style: solid;
 }
+
 
 .accountIcon {
     border: none;
