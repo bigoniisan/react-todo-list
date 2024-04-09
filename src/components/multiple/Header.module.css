@@ -40,7 +40,7 @@
     }
 }
 
-.loginButtonContainer {
+.profileIconContainer {
     position: absolute;
     margin: 10px 100px 0px 0px;
     top: calc(var(--header-height) * 0.1) ;
@@ -51,3 +51,21 @@
     border-width: 1px;
     border-color: green;
 }
+
+.loginFormContainer {
+    position: absolute;
+    margin: 10px 100px 0px 0px;
+    top: calc(var(--header-height) * 0.1) ;
+    right: 0;
+    z-index: 31;
+    margin-top: 100px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: green;
+}
+
+.loginFormContainerHide {
+    display: none;
+}
+

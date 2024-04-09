@@ -1,19 +1,72 @@
-.loginForm {
-    display: none;
+.loginFormContainer {
+    display: flex;
     flex-direction: column;
     top: 0;
     right: 0;
+    width: 300px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
-    border-color: aqua;
-    border-width: 1px;
-    border-style: solid;
 }
 
+.emailContainer {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-.accountIcon {
+.emailInput {
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.passwordContainer {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.passwordInput {
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.rememberMeContainer {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* .rememberMeCheckbox {
+    border: 1px solid #ccc;
+    border-radius: 50px;
+} */
+
+.forgotPassword {
+    text-align: right;
+    text-decoration: none;
+    margin: 10px;
+    color: blue;
+}
+
+.submit {
+    padding: 10px;
     border: none;
-    border-radius: 50%;
-    margin: 4px 2px;
-    padding: 30px;
-    background-color: white
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #0056b3;
 }

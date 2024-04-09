@@ -1,33 +1,23 @@
-import { useRef, useState } from 'react';
 import Styles from './LoginButton.module.css';
 
 function LoginButton(props) {
 
-    const loginFormRef = useRef(null);
-    const [showLogin, setShowLogin] = useState(false);
-
-    function toggleLoginForm() {
-        setShowLogin(!showLogin);
-        showLogin ? loginFormRef.current.style.display = "flex" : loginFormRef.current.style.display = "none"; 
-    }
-
     return (
         <>
-            {/* Pass Props From Child to Parent Component 
-                to call toggleLoginForm on LoginForm as a 
-                separate component */}
-            <a href="#">
-                {/* get profile icon from user */}
-                <div className={Styles.accountIcon} onClick={toggleLoginForm}>
-                
+            <form className={Styles.loginFormContainer} action="#" method='POST'>
+                <div className={Styles.emailContainer}>
+                    <input className={Styles.emailInput} type="text" name="email" placeholder="Email" required/>
                 </div>
-            </a>
-            <form action="#" className={Styles.loginForm} ref={loginFormRef}>
-                <label htmlFor="username">Email</label>
-                <input type="text" name="email"/>
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password"/>
-                <input type="submit" value="Sign in" />
+                <div className={Styles.passwordContainer}>
+                    <input className={Styles.passwordInput} type="password" name="password" placeholder="Password" required/>
+                </div>
+                <div className={Styles.rememberMeContainer}>
+                    <label htmlFor="remember-me">Remember me? </label>
+                    <input className={Styles.rememberMeCheckbox} type="checkbox" name="remember-me"/>
+                    <a className={Styles.forgotPassword} href="#">Forgot password?</a>
+                </div>
+                
+                <input className={Styles.submit} type="submit" value="Sign in" />
             </form>
         </>
     )
