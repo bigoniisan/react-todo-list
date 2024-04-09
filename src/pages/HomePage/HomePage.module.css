@@ -1,21 +1,11 @@
-.videoDisplayFilters {
-    right: 0;
+main {
     position: relative;
-    width: fit-content;
-    border: 1px solid red;
 }
 
-
-.diplayFilterButton {
-
-}
-
-.dropdownFilters {
-
-}
-
-.dropdownFilter {
-    
+.videoDisplayFiltersContainer {
+    position: absolute;
+    top: 12vh;
+    right: 10vw;
 }
 
 .videocardContainer {
@@ -25,7 +15,7 @@
     gap: 50px;
     justify-content: center;
 
-
+    margin: 100px;
     margin-left: 200px;
 
     border-style: solid;

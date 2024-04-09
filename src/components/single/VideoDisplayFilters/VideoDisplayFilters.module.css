@@ -1,0 +1,32 @@
+.videoDisplayFilters {
+    display: flex;
+    width: fit-content;
+    border: 1px solid red;
+}
+
+.diplayFilterButtonList, .diplayFilterButtonGrid {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border: none;
+    background-image: url('../../../assets/list-view-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.diplayFilterButtonGrid {
+    background-image: url('../../../assets/grid-view-icon.png');
+}
+
+.diplayFilterButtonList:hover, .diplayFilterButtonGrid:hover {
+    opacity: 0.5;
+}
+
+.dropdownFilters {
+
+}
+
+.dropdownFilter {
+    
+}
