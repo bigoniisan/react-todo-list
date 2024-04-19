@@ -14,12 +14,15 @@ const corsOptions = {
     origin: '*',
 }
 
-// middleware
+// middleware (anything that happens between the time the server gets
+// the request and the time the server sends the response)
 app.use(express.json());
 app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
     console.log(req.path, req.method);
+    // the next piece of middleware in line will be run when next()
+    // is called
     next();
 })
 

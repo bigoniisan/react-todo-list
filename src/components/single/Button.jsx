@@ -2,6 +2,8 @@ function Button(props) {
 
     // each Button has one (item) currently
 
+    // e.preventDefault() prevents auto page refresh after form submit
+
     console.log(props.data);
 
     return (
