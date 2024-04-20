@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
-import UserModel from "../models/UserModel";
+import UserModel from "../models/UserModel.js";
 
 // TODO: create functions that can be referenced in HTTP requests
 
 // get all
 const getAllUsers = async (req, res) => {
-    const data = await testModel.find( {} ).sort( {createdAt: -1} );
+    const data = await UserModel.find( {} );
     res.status(200).json(data);
 }
 
@@ -15,7 +15,7 @@ const getSingleUser = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "Invalid object ID"})
     }
-    const data = await testModel.findById(id);
+    const data = await UserModel.findById(id);
     if (!data) {
         return res.status(404).json({error: "Does not exist"});
     }
@@ -24,14 +24,14 @@ const getSingleUser = async (req, res) => {
 
 // create new
 const createUser = async (req, res) => {
-    const { username, password, email, age, 
-        dateCreated, dateUpdated, isMember, 
-        _someId, asset } = req.body;
+    const { username, password, email, dateOfBirth, profilePicture, 
+            location, createdAt, updatedAt, socialMedia, 
+            settings } = req.body;
     try {
-        const model = await testModel.create({
-            username, password, email, age, 
-        dateCreated, dateUpdated, isMember, 
-        _someId, asset
+        const model = await UserModel.create({
+            username, password, email, dateOfBirth, profilePicture, 
+            location, createdAt, updatedAt, socialMedia, 
+            settings
         });
         res.status(200).json(model);
     } catch (error) {
@@ -47,7 +47,7 @@ const deleteUser = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "Invalid object ID"})
     }
-    const data = await testModel.findOneAndDelete({_id: id});
+    const data = await UserModel.findOneAndDelete({_id: id});
     if (!data) {
         return res.status(404).json({error: "Does not exist"});
     }
@@ -60,7 +60,7 @@ const updateUser = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "Invalid object ID"})
     }
-    const data = await testModel.findOneAndUpdate(
+    const data = await UserModel.findOneAndUpdate(
         {_id: id}, {...req.body}
     )
     if (!data) {

@@ -7,16 +7,16 @@ import {
     updateVideo
 } from '../controllers/VideoController.js'; 
 
-const router = express.Router();
+const VideoRouter = express.Router();
 
-router.get('/video', getAllVideos);
+VideoRouter.get('/', getAllVideos);
 
-router.get('/video/:id', getSingleVideo)
+VideoRouter.get('/:id', getSingleVideo)
 
-router.post('/video', createVideo);
+VideoRouter.post('/', createVideo);
 
-router.delete('/video/:id', deleteVideo)
+VideoRouter.delete('/:id', deleteVideo)
 
-router.patch('/video/:id', updateVideo)
+VideoRouter.patch('/:id', updateVideo)
 
-export default router;
+export default VideoRouter;

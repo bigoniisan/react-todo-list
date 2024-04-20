@@ -2,13 +2,6 @@ import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
 const UserModel = new mongoose.Schema({
-    username: {
-        type: String,
-        required: [true, "can't be blank"],
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
-        unique: true,
-        index: true
-    },
     /**
      * // TODO: Password encryption
      * For user authentication to work, 
@@ -17,12 +10,19 @@ const UserModel = new mongoose.Schema({
      * To generate and validate hashes, we'll use the pbkdf2 algorithm 
      * from the crypto library that comes with Node.
      */
+    username: {
+        type: String,
+        required: [true, "can't be blank"],
+        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+        // unique: true,
+        index: true
+    },
     password: { type: String, required: true },
     email: {
         type: String,
         required: [true, "can't be blank"], 
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
-        unique: true,
+        match: [/^[a-zA-Z0-9@.]+$/, 'is invalid'],
+        // unique: true,
         index: true
     },
     dateOfBirth: { type: Number },
@@ -45,4 +45,4 @@ const UserModel = new mongoose.Schema({
 
 UserModel.plugin(uniqueValidator);
 
-export default UserModel;
+export default mongoose.model('UserModel', UserModel);

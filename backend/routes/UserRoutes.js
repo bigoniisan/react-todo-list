@@ -7,16 +7,16 @@ import {
     updateUser
 } from '../controllers/UserController.js'; 
 
-const router = express.Router();
+const UserRouter = express.Router();
 
-router.get('/user', getAllUsers);
+UserRouter.get('/', getAllUsers);
 
-router.get('/user/:id', getSingleUser)
+UserRouter.get('/:id', getSingleUser)
 
-router.post('/user', createUser);
+UserRouter.post('/', createUser);
 
-router.delete('/user/:id', deleteUser)
+UserRouter.delete('/:id', deleteUser)
 
-router.patch('/user/:id', updateUser)
+UserRouter.patch('/:id', updateUser)
 
-export default router;
+export default UserRouter;

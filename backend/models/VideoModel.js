@@ -14,7 +14,7 @@ const VideoModel = new mongoose.Schema({
     likes: { type: Number, default: 0 },
     dislikes: { type: Number, default: 0 },
     comments: [{
-      user: { type: UserModel },
+      user: { type: UserModel.schema },
       content: { type: String },
       createdAt: { type: Date, default: Date.now },
     }],
@@ -27,4 +27,4 @@ const VideoModel = new mongoose.Schema({
 
 VideoModel.plugin(uniqueValidator);
 
-export default VideoModel;
+export default mongoose.model('VideoModel', VideoModel);

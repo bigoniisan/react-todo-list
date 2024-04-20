@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
-import VideoModel from "../models/VideoModel";
+import VideoModel from "../models/VideoModel.js";
 
 // TODO: create functions that can be referenced in HTTP requests
 
 // get all
 const getAllVideos = async (req, res) => {
-    const data = await testModel.find( {} ).sort( {createdAt: -1} );
+    const data = await VideoModel.find( {} );
     res.status(200).json(data);
 }
 
@@ -15,7 +15,7 @@ const getSingleVideo = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "Invalid object ID"})
     }
-    const data = await testModel.findById(id);
+    const data = await VideoModel.findById(id);
     if (!data) {
         return res.status(404).json({error: "Does not exist"});
     }
@@ -24,14 +24,14 @@ const getSingleVideo = async (req, res) => {
 
 // create new
 const createVideo = async (req, res) => {
-    const { username, password, email, age, 
-        dateCreated, dateUpdated, isMember, 
-        _someId, asset } = req.body;
+    const { title, description, url, thumbnail, duration, 
+            tags, views, likes, dislikes, comments, playbackPosition, 
+            playbackStatus, uploadDate, updatedAt } = req.body;
     try {
-        const model = await testModel.create({
-            username, password, email, age, 
-        dateCreated, dateUpdated, isMember, 
-        _someId, asset
+        const model = await VideoModel.create({
+            title, description, url, thumbnail, duration, 
+            tags, views, likes, dislikes, comments, playbackPosition, 
+            playbackStatus, uploadDate, updatedAt
         });
         res.status(200).json(model);
     } catch (error) {
@@ -47,7 +47,7 @@ const deleteVideo = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "Invalid object ID"})
     }
-    const data = await testModel.findOneAndDelete({_id: id});
+    const data = await VideoModel.findOneAndDelete({_id: id});
     if (!data) {
         return res.status(404).json({error: "Does not exist"});
     }
@@ -60,7 +60,7 @@ const updateVideo = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "Invalid object ID"})
     }
-    const data = await testModel.findOneAndUpdate(
+    const data = await VideoModel.findOneAndUpdate(
         {_id: id}, {...req.body}
     )
     if (!data) {
