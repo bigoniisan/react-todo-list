@@ -13,11 +13,11 @@ const VideoModel = new mongoose.Schema({
     views: { type: Number, default: 0 },
     likes: { type: Number, default: 0 },
     dislikes: { type: Number, default: 0 },
-    comments: [{
-      user: { type: UserModel.schema },
-      content: { type: String },
-      createdAt: { type: Date, default: Date.now },
-    }],
+    // comments: [{
+    //   user: { type: UserModel.schema },
+    //   content: { type: String },
+    //   createdAt: { type: Date, default: Date.now },
+    // }],
     playbackPosition: { type: Number, default: 0 },
     playbackStatus: { type: String, enum: ['playing', 'paused', 'stopped'], default: 'stopped' },
     uploadDate: { type: Date, default: Date.now },

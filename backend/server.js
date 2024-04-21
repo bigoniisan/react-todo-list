@@ -36,7 +36,12 @@ app.use('/api/user', UserRouter);
 app.use('/api/video', VideoRouter);
 
 // connect to DB
-mongoose.connect(process.env.MONGO_URI)
+const mongooseOptions = {
+    autoIndex: true,
+    dbName: "video-sharing"
+}
+
+mongoose.connect(process.env.MONGO_URI, mongooseOptions)
     .then(() => {
         // listen for requests
         app.listen(process.env.PORT, () => {

@@ -24,14 +24,56 @@ const getSingleVideo = async (req, res) => {
 
 // create new
 const createVideo = async (req, res) => {
-    const { title, description, url, thumbnail, duration, 
-            tags, views, likes, dislikes, comments, playbackPosition, 
-            playbackStatus, uploadDate, updatedAt } = req.body;
+
+    // max length 11?
+    function randomString(length=11) {
+        return Math.random().toString(36).substring(2, length);
+    }
+
+    function randomThumbnail() {
+        const randomId = Math.floor(Math.random() * 1000);
+        return "https://picsum.photos/id/" + randomId + "/200/125";
+    }
+
+    function randomNumber(length=10000) {
+        return Math.floor(Math.random() * length);
+    }
+
+    function randomDate(start = new Date(2001, 0, 1), end = new Date()) {
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+    }
+
+    const title = randomString(8);
+    const description = randomString(11);
+    const videoUrl = "https://http://localhost:3000/video/" + randomString();
+    // preload random thumbnail with lorem picsum
+    const thumbnail = randomThumbnail();
+    const duration = randomNumber();
+    const views = randomNumber();
+    const likes = randomNumber();
+    const dislikes = randomNumber();
+    const uploadDate = randomDate();
+
+    const { 
+        tags, comments, playbackPosition, playbackStatus, updatedAt 
+    } = req.body;
+    
     try {
         const model = await VideoModel.create({
-            title, description, url, thumbnail, duration, 
-            tags, views, likes, dislikes, comments, playbackPosition, 
-            playbackStatus, uploadDate, updatedAt
+            title: title, 
+            description: description, 
+            url: videoUrl, 
+            thumbnail: thumbnail, 
+            duration: duration, 
+            tags, 
+            views: views, 
+            likes: likes, 
+            dislikes: dislikes, 
+            comments, 
+            playbackPosition, 
+            playbackStatus, 
+            uploadDate: uploadDate, 
+            updatedAt
         });
         res.status(200).json(model);
     } catch (error) {
