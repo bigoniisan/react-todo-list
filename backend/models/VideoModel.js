@@ -6,6 +6,8 @@ const VideoModel = new mongoose.Schema({
     title: { type: String, required: true, index: true },
     description: { type: String },
     url: { type: String, required: true, unique: true },
+    // channelName: { type: UserModel.schema },
+    channelName: { type: String, required: true, unique: true },
     thumbnail: { type: String },
     duration: { type: Number },
     // tags is an array of Strings

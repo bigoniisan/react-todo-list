@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
+// TODO: get UserModel working
+
 const UserModel = new mongoose.Schema({
     /**
      * // TODO: Password encryption

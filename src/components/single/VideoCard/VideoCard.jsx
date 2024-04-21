@@ -1,33 +1,49 @@
 import Styles from './VideoCard.module.css';
+import { format } from 'date-fns';
 
 // gets video thumbnail from somewhere
 function VideoCard(props) {
 
-    const videoData = {
-        videoTitle: "TTHHEYEYEYYE",
-        channelName: "channel name",
-        uploadedDate: "20/1/2022",
-        views: 5007,
-        videoDuration: "5:09"
-    }
+    const videoId = props.key;
+    const videoData = props.videoData;
+    const {
+        _id,
+        title,
+        description,
+        url,
+        channelName,
+        thumbnail,
+        duration,
+        tags,
+        views,
+        likes,
+        dislikes,
+        playbackPosition,
+        playbackStatus,
+        uploadDate,
+        updatedAt,
+        createdAt,
+    } = videoData;
+
+    const formattedDate = format(uploadDate, 'yyyy/MM/dd');
 
     return (
         <>
             <div className={Styles.card}>
-                <a href="#">
-                    <img src="https://picsum.photos/200/125" alt="" />
+                <a href={url}>
+                    <img src={thumbnail} alt="" />
                 </a>
                 <div className={Styles.videoDuration}>
-                    {videoData.videoDuration}
+                    {"Duration: " + duration}
                 </div>
                 <div className={Styles.videoTitle}>
-                    {videoData.videoTitle}
+                    {title}
                 </div>
                 <div className={Styles.channelName}>
-                    {videoData.channelName}
+                    {channelName}
                 </div>
                 <div className={Styles.subtitleContainer}>
-                    {videoData.views} {videoData.uploadedDate}
+                    {views} {formattedDate}
                 </div>
             </div>
         </>

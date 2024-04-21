@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 function HomePage(props) {
 
     const [items, setItems] = useState(null);
+    const [allVideoData, setAllVideoData] = useState(null);
 
     // useEffect fires a function when the component is rendered
     // second argument is the dependency array for when to call the function
@@ -24,6 +25,24 @@ function HomePage(props) {
 
         fetchItems();
     }, []) 
+
+    useEffect(() => {
+        const fetchAllVideoData = async () => {
+            const response = await fetch("http://localhost:5000/api/video", {
+                method: 'GET',
+                headers: {
+                    "Content-Type": 'application/json'
+                }
+            });
+            const data = await response.json();
+            if (response.ok) {
+                setAllVideoData(data);
+            } else {
+                console.log("Could not fetch all video data");
+            }
+        }
+        fetchAllVideoData();
+    }, [])
 
     return (
         <>
@@ -46,53 +65,12 @@ function HomePage(props) {
                     <VideoDisplayFilters />
                 </div>
                 <div className={Styles.videocardContainer}>
+
+                    { allVideoData && allVideoData.map((videoData) => {
+                        console.log(allVideoData.length);
+                        return <VideoCard key={videoData._id} videoData={videoData} />
+                    }) }
                     
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
                 </div>
                 
             </main>

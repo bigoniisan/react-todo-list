@@ -45,7 +45,8 @@ const createVideo = async (req, res) => {
 
     const title = randomString(8);
     const description = randomString(11);
-    const videoUrl = "https://http://localhost:3000/video/" + randomString();
+    const url = "https://http://localhost:3000/video/" + randomString();
+    const channelName = randomString(8);
     // preload random thumbnail with lorem picsum
     const thumbnail = randomThumbnail();
     const duration = randomNumber();
@@ -62,7 +63,8 @@ const createVideo = async (req, res) => {
         const model = await VideoModel.create({
             title: title, 
             description: description, 
-            url: videoUrl, 
+            url: url, 
+            channelName: channelName,
             thumbnail: thumbnail, 
             duration: duration, 
             tags, 
