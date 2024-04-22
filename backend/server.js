@@ -37,7 +37,7 @@ app.use('/api/video', VideoRouter);
 
 // connect to DB
 const mongooseOptions = {
-    autoIndex: true,
+    autoIndex: false,
     dbName: "video-sharing"
 }
 

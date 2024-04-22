@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
+import VideoModel from './VideoModel.js';
 
 // TODO: get UserModel working
 
@@ -14,21 +15,24 @@ const UserModel = new mongoose.Schema({
      */
     username: {
         type: String,
-        required: [true, "can't be blank"],
+        required: true,
         match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
-        // unique: true,
+        unique: true,
         index: true
     },
     password: { type: String, required: true },
     email: {
         type: String,
-        required: [true, "can't be blank"], 
+        required: true, 
         match: [/^[a-zA-Z0-9@.]+$/, 'is invalid'],
-        // unique: true,
-        index: true
+        unique: true,
+        // index: true
     },
     dateOfBirth: { type: Number },
     profilePicture: { type: String },
+    videos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'VideoModel' }],
+    channelName: { type: String },
+    userUrl: { type: String, unique: true },
     location: { type: String },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
