@@ -13,20 +13,20 @@ const UserModel = new mongoose.Schema({
      * To generate and validate hashes, we'll use the pbkdf2 algorithm 
      * from the crypto library that comes with Node.
      */
-    username: {
-        type: String,
-        required: true,
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
-        unique: true,
-        index: true
-    },
+    // username: {
+    //     type: String,
+    //     required: true,
+    //     match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+    //     unique: true,
+    //     index: true
+    // },
     password: { type: String, required: true },
     email: {
         type: String,
         required: true, 
         match: [/^[a-zA-Z0-9@.]+$/, 'is invalid'],
         unique: true,
-        // index: true
+        index: true
     },
     dateOfBirth: { type: Number },
     profilePicture: { type: String },

@@ -11,14 +11,14 @@
     
 }
 
-.emailContainer {
+.userContainer {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.emailInput {
+.user {
     width: 90%;
     padding: 10px;
     border-radius: 5px;
