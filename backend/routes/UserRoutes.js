@@ -2,8 +2,8 @@ import express from 'express';
 import {
     getAllUsers,
     getSingleUser,
-    getUserByEmail,
     createUser, 
+    logInUser,
     deleteUser,
     updateUser
 } from '../controllers/UserController.js'; 
@@ -14,9 +14,9 @@ UserRouter.get('/', getAllUsers);
 
 UserRouter.get('/:id', getSingleUser)
 
-UserRouter.get('/email/:email', getUserByEmail)
+UserRouter.post('/signup', createUser);
 
-UserRouter.post('/', createUser);
+UserRouter.post('/login', logInUser);
 
 UserRouter.delete('/:id', deleteUser)
 

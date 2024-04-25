@@ -11,6 +11,20 @@
     
 }
 
+.emailExists {
+    display: block;
+    margin-bottom: 10px;
+    color: rgb(0, 81, 255); /* Change color to your preference */
+    font-size: 14px;
+}
+
+.invalidCredentials {
+    display: block;
+    margin-bottom: 10px;
+    color: rgb(0, 81, 255); /* Change color to your preference */
+    font-size: 14px;
+}
+
 .userContainer {
     padding: 10px;
     margin-bottom: 15px;
@@ -58,15 +72,24 @@
     color: blue;
 }
 
-.submit {
+.signIn, .signUp {
     padding: 10px;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
-.submit:hover {
-    background-color: #0056b3;
+.signIn:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+.signUp {
+    background-color: #28a745;
+}
+
+.signUp:hover {
+    background-color: #218838; /* Darker green color on hover */
 }
