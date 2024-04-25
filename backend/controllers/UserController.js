@@ -2,6 +2,26 @@ import mongoose from "mongoose";
 import bcrypt from 'bcrypt';
 import UserModel from "../models/UserModel.js";
 
+/**
+    req.body:
+        app.get('/giraffe', (req, res) => {
+            console.log(req.body.key1) //value1
+            console.log(req.body.key2) //value2
+        })
+
+    req.params:
+        app.get('/giraffe/:number', (req, res) => {
+            console.log(req.params.number)
+        })
+        GET http://localhost:3000/giraffe/1
+    
+    req.query:
+        GET http://localhost:3000/animals?page=10
+        app.get('/animals', () => {
+            console.log(req.query.page) // 10
+        })
+ */
+
 // get all
 const getAllUsers = async (req, res) => {
     const data = await UserModel.find( {} );
