@@ -42,23 +42,21 @@ const getSingleUser = async (req, res) => {
 }
 
 const logInUser = async (req, res) => {
-    const { email, password, rememberMe } = req.body;
     try {
         // Find the user by username
-        const user = await UserModel.findOne({ email: email });
+        const user = await UserModel.findOne({ email: req.body.email });
     
         if (!user) {
           return res.status(404).json({ message: 'User not found' });
         }
     
         // Compare passwords
-        if (password !== user.password) {
-          return res.status(401).json({ message: 'Incorrect password' });
+        if (await bcrypt.compare(req.body.password, user.password)) {
+            // Passwords match, return user data
+            return res.status(200).json({ user });
         }
-    
-        // Passwords match, return user data
-        res.status(200).json({ user });
-
+        // return 401 by default
+        return res.status(401).json({ message: 'Incorrect password' });
       } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
@@ -95,28 +93,26 @@ function getRandomVideosFromDb(quantity) {
 
 // create new
 const createUser = async (req, res) => {
-
-    // TODO: Hash password 
-
-    let { email, password, rememberMe } = req.body;
-
     const profilePicture = randomThumbnail();
     const createdAt = Date.now();
     const updatedAt = Date.now();
 
     try {
         // Check if user exists
-        const userExists = await UserModel.findOne({ email: email });
+        const userExists = await UserModel.findOne({ email: req.body.email });
         if (userExists) {
             return res.status(409).json({ message: 'Email already exists' });
         }
+
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
         // Generate random videos for user
         const videos = await getRandomVideosFromDb(10);
         // Create user in DB
         const model = await UserModel.create({ 
-            password: password, 
-            email: email,
+            password: hashedPassword, 
+            email: req.body.email,
             // dateOfBirth: dateOfBirth,
             profilePicture: profilePicture,
             videos: videos,
