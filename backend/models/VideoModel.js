@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
-import UserModel from './UserModel.js';
 
 const VideoModel = new mongoose.Schema({
     title: { type: String, required: true, index: true },
@@ -29,4 +28,4 @@ const VideoModel = new mongoose.Schema({
 
 VideoModel.plugin(uniqueValidator);
 
-export default mongoose.model('VideoModel', VideoModel);
+export default mongoose.model('Video', VideoModel);

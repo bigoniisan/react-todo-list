@@ -2,6 +2,7 @@ import express from 'express';
 import {
     getAllUsers,
     getSingleUser,
+    getUserProfile,
     createUser, 
     logInUser,
     deleteUser,
@@ -12,7 +13,9 @@ const UserRouter = express.Router();
 
 UserRouter.get('/', getAllUsers);
 
-UserRouter.get('/:id', getSingleUser)
+UserRouter.get('/:id', getSingleUser);
+
+UserRouter.get('/profile', getUserProfile);
 
 UserRouter.post('/signup', createUser);
 

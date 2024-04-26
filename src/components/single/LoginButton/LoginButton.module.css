@@ -11,17 +11,10 @@
     
 }
 
-.emailExists {
+.error {
     display: block;
     margin-bottom: 10px;
-    color: rgb(0, 81, 255); /* Change color to your preference */
-    font-size: 14px;
-}
-
-.invalidCredentials {
-    display: block;
-    margin-bottom: 10px;
-    color: rgb(0, 81, 255); /* Change color to your preference */
+    color: #B80000; /* Change color to your preference */
     font-size: 14px;
 }
 
@@ -92,4 +85,36 @@
 
 .signUp:hover {
     background-color: #218838; /* Darker green color on hover */
+}
+
+.userDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: calc(100% - 20px);
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdownItem {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdownItem:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdownDivider {
+    border-top: 1px solid #ccc;
+    margin: 5px 0;
 }

@@ -5,27 +5,13 @@ import VideoDisplayFilters from '../../components/single/VideoDisplayFilters/Vid
 import Button from '../../components/single/Button';
 import { useEffect, useState } from 'react';
 
-function HomePage(props) {
+function HomePage() {
 
     const [items, setItems] = useState(null);
     const [allVideoData, setAllVideoData] = useState(null);
 
     // useEffect fires a function when the component is rendered
     // second argument is the dependency array for when to call the function
-    useEffect(() => { 
-        // when HomePage is rendered, fetch items from the api
-        // in the backend
-        const fetchItems = async () => {
-            const response = await fetch('http://localhost:5000/api/test')
-            const data = await response.json();
-            if (response.ok) {
-                setItems(data);
-            }
-        }
-
-        fetchItems();
-    }, []) 
-
     useEffect(() => {
         const fetchAllVideoData = async () => {
             const response = await fetch("http://localhost:5000/api/video", {

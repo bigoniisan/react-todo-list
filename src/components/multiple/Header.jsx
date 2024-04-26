@@ -9,6 +9,13 @@ import SideMenu from '../single/SideMenu/SideMenu';
 function Header() {
 
     const [showLogin, setShowLogin] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [childData, setChildData] = useState(null);
+
+    const handleChildData = (data) => {
+        setChildData(data);
+        console.log(data.profilePicture);
+    }
 
     function toggleLoginForm() {
         return showLogin ? `${Styles.loginFormContainer}` : `${Styles.loginFormContainerHide}`
@@ -25,10 +32,10 @@ function Header() {
                     <SearchBar />
                 </div>
                 <div className={Styles.profileIconContainer}>
-                    <ProfileIcon displayLogin={display => setShowLogin(display)} showLogin={showLogin} />                  
+                    <ProfileIcon profilePicture={childData && childData.profilePicture} displayLogin={display => setShowLogin(display)} showLogin={showLogin} />                  
                 </div>
                 <div className={toggleLoginForm()}>
-                    <LoginButton />
+                    <LoginButton sendDataToParent={handleChildData} />
                 </div>
             </div>
             
